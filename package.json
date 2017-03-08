@@ -9,6 +9,7 @@
   "author": "Esaon Chang",
   "license": "MIT",
   "dependencies": {
-    "botkit": "^0.5.1"
+    "botkit": "^0.5.1",
+    "dotenv": "^4.0.0"
   }
 }
