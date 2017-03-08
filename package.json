@@ -1,0 +1,14 @@
+{
+  "name": "eason-bot",
+  "version": "0.1.0",
+  "description": "My bot on Messenger with Botkit",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Esaon Chang",
+  "license": "MIT",
+  "dependencies": {
+    "botkit": "^0.5.1"
+  }
+}
