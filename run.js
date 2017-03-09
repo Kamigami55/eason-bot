@@ -1,7 +1,6 @@
 var dotenv = require('dotenv')
 var Botkit = require('./lib/Botkit.js');
 var os = require('os');
-var localtunnel = require('localtunnel');
 
 dotenv.load()
 
@@ -20,22 +19,11 @@ var bot = controller.spawn({
 controller.setupWebserver(process.env.port || 3000, function(err, webserver) {
     controller.createWebhookEndpoints(webserver, bot, function() {
         console.log('ONLINE!');
-        if(process.env.LT_SUBDOMAIN) {
-            var tunnel = localtunnel(process.env.port || 3000, {subdomain: process.env.LT_SUBDOMAIN}, function(err, tunnel){
-                if (err) {
-                    console.log(err);
-                    process.exit();
-                }
-                console.log("Your bot is available on the web at the following URL: " + tunnel.url + '/facebook/receive');
-            });
-
-            tunnel.on('close', function() {
-                console.log("Your bot is no longer available on the web at the localtunnnel.me URL.");
-                process.exit();
-            });
-        }
     });
 });
+
+
+
 
 controller.api.thread_settings.greeting('這裡住著一隻小小聊天機器人，跟他說說話吧～');
 controller.api.thread_settings.get_started('sample_get_started_payload');
